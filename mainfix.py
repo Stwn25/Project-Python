@@ -12,9 +12,9 @@ def sign():
     data_login.clear()
     pw_super_admin = 'superadmin'
 
-    print(f'{'='*37}')
-    print(f'|{'Lets CAMP!':^35}|')  
-    print(f'{'='*37}')
+    print(f'{"="*37}')
+    print(f'|{"Lets CAMP!":^35}|')
+    print(f'{"="*37}')
 
     pilih = input('Halo, \nIngin login(l)/regis(r) : ')
 
@@ -46,7 +46,7 @@ def sign():
 
 def regis_admin():
     print('-'*35)
-    print(f'{'ADMIN':^35}')
+    print(f'{"ADMIN":^35}')
     print('-'*35)
 
     status = 'admin'
@@ -57,7 +57,7 @@ def regis_admin():
         regis_admin()
 
     password = input('\n*Minimal 8 karakter, huruf kapital, symbol, dan angka \nPassword : ')
-    if len(password) < 8 or not any(char.isupper() for char in password) or not re.search("[!@#$%^&*(),.?':{}|<>]", password) or not any(char.isdigit() for char in password):
+    if len(password) < 8 or not any(char.isupper() for char in password) or not re.search('[!@#$%^&*(),.?":{}|<>]', password) or not any(char.isdigit() for char in password):
         print('\nPassword tidak memenuhi syarat (minimal 8 karakter, huruf kapital, symbol, dan angka) !')
         regis_admin()
         
@@ -75,7 +75,7 @@ def regis_admin():
     data_akun =[]
 
     with open ('dataakun.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_akun.append({'username':row[0],'password':row[1], 'nama':row[2], 'no.telp': row[3], 'status': row[4]})
 
@@ -103,7 +103,7 @@ def regis_admin():
 
 def regis_customer():
     print('-'*35)
-    print(f'{'CUSTOMER':^35}')
+    print(f'{"CUSTOMER":^35}')
     print('-'*35)
 
     status = 'customer'
@@ -114,7 +114,7 @@ def regis_customer():
         regis_customer()
 
     password = input('\n*Minimal 8 karakter, huruf kapital, symbol, dan angka \nPassword : ')
-    if len(password) < 8 or not any(char.isupper() for char in password) or not re.search("[!@#$%^&*(),.?':{}|<>]", password) or not any(char.isdigit() for char in password):
+    if len(password) < 8 or not any(char.isupper() for char in password) or not re.search('[!@#$%^&*(),.?":{}|<>]', password) or not any(char.isdigit() for char in password):
         print('\nPassword tidak memenuhi syarat (minimal 8 karakter, huruf kapital, symbol, dan angka) !')
         regis_customer()
         
@@ -133,7 +133,7 @@ def regis_customer():
     data_akun =[]
 
     with open ('dataakun.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_akun.append({'username':row[0],'password':row[1], 'nama':row[2], 'no.telp': row[3], 'status': row[4]})
 
@@ -161,7 +161,7 @@ def regis_customer():
 
 def regis():
     print('='*35)
-    print(f'{'REGISTRASI':^35}')
+    print(f'{"REGISTRASI":^35}')
     print('='*35)
     print('\n*Untuk registrasi sebagai admin, \nhubungi super admin ! \n')
     
@@ -174,7 +174,7 @@ data_login = []
 
 def login_admin():
     print('-'*37)
-    print(f'|{'ADMIN':^35}|')
+    print(f'|{"ADMIN":^35}|')
     print('-'*37)
 
     status = 'admin'
@@ -190,7 +190,7 @@ def login_admin():
     data_akun = []
 
     with open ('dataakun.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_akun.append({'username':row[0],'password':row[1], 'nama':row[2], 'no.telp': row[3], 'status': row[4]})
     
@@ -221,7 +221,7 @@ def login_admin():
 
 def login_customer():
     print('-'*35)
-    print(f'{'CUSTOMER':^35}')
+    print(f'{"CUSTOMER":^35}')
     print('-'*35)
     status = 'customer'
     username = input('Username : \n')
@@ -236,7 +236,7 @@ def login_customer():
     data_akun = []
 
     with open ('dataakun.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_akun.append({'username':row[0],'password':row[1], 'nama':row[2], 'no.telp': row[3], 'status': row[4]})
 
@@ -274,7 +274,7 @@ def login_customer():
 
 def login():
     print('='*37)
-    print(f'|{'LOGIN':^35}|')
+    print(f'|{"LOGIN":^35}|')
     print('='*37)
     print('\n[1] Admin \n[2] Customer')
     masuk = input('\nLog in sebagai (1/2) : ')
@@ -336,8 +336,8 @@ def home_super_admin():
 #============================================================================
 def lihat_akun():
     print('='*37)
-    print(f'|{'Data Akun Admin/Customer':^35}|')
-    print(f'{'='*37}\n')
+    print(f'|{"Data Akun Admin/Customer":^35}|')
+    print(f'{"="*37}\n')
 
     data_akun = []
     with open('dataakun.csv', 'r') as file:
@@ -400,7 +400,7 @@ def hapus_akun():
                 write.writerows(data_akun)
 
             clear()
-            print('\nData akun berhasil dihapus !')
+            print("\nData akun berhasil dihapus !")
             print('='*35)
             home_super_admin()
 
@@ -414,8 +414,8 @@ def hapus_akun():
 def riwayat_login():
     clear()
     print('='*37)
-    print(f'|{'Riwayat Login':^35}|')
-    print(f'{'='*37}\n')
+    print(f'|{"Riwayat Login":^35}|')
+    print(f'{"="*37}\n')
 
     data_riwayat = []
     with open ('riwayatlogin.csv', 'r') as file:
@@ -446,7 +446,7 @@ def kembali_super_admin():
 #============================================================================
 
 def home_admin():
-    pilih_menu = input(f'Selamat Datang, {data_login[0]['nama']} !\n\n[1] Kelola Alat Camping \n[2] Pesanan Customer \n[3] Log Out \n\nPilih menu : ')
+    pilih_menu = input(f'Selamat Datang, {data_login[0]["nama"]} !\n\n[1] Kelola Alat Camping \n[2] Pesanan Customer \n[3] Log Out \n\nPilih menu : ')
     clear()
 
     if pilih_menu == '1':
@@ -468,9 +468,9 @@ def home_admin():
 #============================================================================
 
 def menu_satu_admin():
-    print(f'{'-'*37}')
-    print(f'|{'Kelola Alat Camping':^35}|')
-    print(f'{'-'*37}')
+    print(f'{"-"*37}')
+    print(f'|{"Kelola Alat Camping":^35}|')
+    print(f'{"-"*37}')
     print('\n[1] Satuan \n[2] Paketan \n[3] Kembali')
     menu = input('\nPilih menu :')
     clear()
@@ -489,9 +489,9 @@ def menu_satu_admin():
 #============================================================================
 
 def pilih_satuan():
-    print(f'{'-'*37}')
-    print(f'|{'Satuan':^35}|')
-    print(f'{'-'*37}')
+    print(f'{"-"*37}')
+    print(f'|{"Satuan":^35}|')
+    print(f'{"-"*37}')
     print('\n[1] Tambah Alat \n[2] Lihat Data Alat \n[3] Update Data Alat \n[4] Hapus Data Alat \n[5] Kembali')
     pilih_submenu = input('\nPilih menu : ')
 
@@ -518,9 +518,9 @@ def pilih_satuan():
 #============================================================================
 
 def pilih_paketan():
-    print(f'{'-'*37}')
-    print(f'|{'Paketan':^35}|')
-    print(f'{'-'*37}')
+    print(f'{"-"*37}')
+    print(f'|{"Paketan":^35}|')
+    print(f'{"-"*37}')
     print('\n[1] Tambah Paket \n[2] Lihat Data Paket \n[3] Update Data Paket \n[4] Hapus Data Paket \n[5] Kembali')
     pilih_submenu = input('\nPilih menu : ')
 
@@ -558,7 +558,7 @@ def pilih_paketan():
 
 def tambah_alat() :
 
-    print(f'{'Tambah Alat':^35}')
+    print(f'{"Tambah Alat":^35}')
     alat = input('\nNama Alat : \n')
     if alat == '':
         print('\nMasukkan nama alat !')
@@ -574,7 +574,7 @@ def tambah_alat() :
     data_alat = []
 
     with open ('dataalat.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append({'alat':row[0],'harga':row[1]})
 
@@ -603,7 +603,7 @@ def kembali_1():
     jika = input('\nTambah alat lagi ? (y/n) :')
 
     if jika == 'y':
-        print(f'\n{'-'*35}')
+        print(f'\n{"-"*35}')
         tambah_alat()
     elif jika == 'n':
         clear()
@@ -616,7 +616,7 @@ def kembali_1():
 def lihat_alat():
     data_alat = []
     with open ('dataalat.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append([row[0],row[1]])
 
@@ -638,11 +638,11 @@ def kembali_satuan():
 #============================================================================
 
 def update_alat():
-    print(f'{'Update Alat':^35}\n')
+    print(f'{"Update Alat":^35}\n')
 
     data_alat = []
     with open ('dataalat.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append([row[0],row[1]])
 
@@ -701,11 +701,11 @@ def update_alat():
 #============================================================================
 
 def hapus_alat():
-    print(f'{'Hapus Alat':^35}\n')
+    print(f'{"Hapus Alat":^35}\n')
 
     data_alat = []
     with open('dataalat.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append([row[0],row[1]])
 
@@ -737,7 +737,7 @@ def hapus_alat():
                 write.writerows(data_alat)
 
             clear()
-            print('\nData berhasil dihapus !')
+            print("\nData berhasil dihapus !")
             pilih_satuan()
 
     if data == 0:
@@ -752,7 +752,7 @@ def hapus_alat():
 #Paketan
 
 def tambah_paket():
-    print(f'{'Tambah Paket ':^35}')
+    print(f'{"Tambah Paket ":^35}')
 
     paket = input('\nNama Paket : ')
     if paket == '':
@@ -762,7 +762,7 @@ def tambah_paket():
 
     data_alat = []
     with open('dataalat.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append({'alat':row[0],'harga':row[1]})
 
@@ -792,7 +792,7 @@ def tambah_paket():
 
     data_paket = []
     with open('datapaket.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_paket.append({'namapaket':row[0], 'alat':row[1], 'harga':row[2], 'diskon':row[3]})
 
@@ -839,22 +839,23 @@ def kembali_2():
     jika = input('\nIngin menambahkan lagi ? (y/n) : ')
 
     if jika == 'y':
-        print(f'\n{'='*35}')
+        print(f'\n{"="*35}')
         tambah_paket()
     elif jika == 'n':
         clear()
         pilih_paketan()
     else:
         kembali_2()
+    
         
 #============================================================================
 
 def lihat_paket():
-    print(f'{'Data Paket ':^35}\n')
+    print(f'{"Data Paket ":^35}\n')
 
     data_paket = []
     with open('datapaket.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_paket.append([row[0],row[1], row[2],row[3]])
     
@@ -872,10 +873,11 @@ def kembali_paketan():
     else:
         kembali_paketan()
     
+    
 #============================================================================
 
 def update_paket():
-    print(f'{'Update Paket ':^35}\n')
+    print(f'{"Update Paket ":^35}\n')
 
     data_paket = []
     with open ('datapaket.csv', 'r') as file:
@@ -919,7 +921,7 @@ def update_paket():
 
     data_alat = []
     with open('dataalat.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append({'alat':row[0],'harga':row[1]})
 
@@ -949,7 +951,7 @@ def update_paket():
 
     data_alat = []
     with open ('dataalat.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_alat.append({'alat':row[0],'harga':row[1]})
 
@@ -1003,11 +1005,11 @@ def update_paket():
 #============================================================================
 
 def hapus_paket():
-    print(f'{'Hapus Paket':^35}\n')
+    print(f'{"Hapus Paket":^35}\n')
 
     data_paket = []
     with open('datapaket.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_paket.append([row[0],row[1],row[2],row[3]])
 
@@ -1044,7 +1046,7 @@ def hapus_paket():
         write.writerows(data_paket)    
 
     clear()
-    print('\nData paket berhasil dihapus !')
+    print("\nData paket berhasil dihapus !")
     pilih_paketan()
 #============================================================================
 #function, Menu 1. Kelola Alat Camping
@@ -1055,9 +1057,9 @@ def hapus_paket():
 #============================================================================
 
 def menu_dua_admin():
-    print(f'{'='*37}')
-    print(f'|{'List Pesanan':^35}|')
-    print(f'{'='*37}\n')
+    print(f'{"="*37}')
+    print(f'|{"List Pesanan":^35}|')
+    print(f'{"="*37}\n')
 
     data_pesanan = []
     with open ('datapesanan.csv', 'r') as file:
@@ -1191,7 +1193,7 @@ def hapus_pesanan():
 #============================================================================
 
 def home_customer():
-    print(f'Selamat Datang, {data_login[0]['nama']} !') 
+    print(f'Selamat Datang, {data_login[0]["nama"]} !') 
         
     print('\n[1] Pesan \n[2] Lihat pesanan \n[3] Log out')
     pilih_menu = input('\nPilih menu : ')
@@ -1219,7 +1221,7 @@ def home_customer():
 
 def tambah_pesanan_customer():
     print('='*37)
-    print(f'|{'Pesan':^35}|')
+    print(f'|{"Pesan":^35}|')
     print('='*37)
     print('\n[1] Satuan \n[2] Paketan \n[3] Kembali')
     pilih = input('\nPilih menu : ')
@@ -1246,13 +1248,13 @@ pesan_satuan = []
 
 def pesanan_satuan_customer():
     print('='*37)
-    print(f'|{'Pesan Satuan':^35}|')
-    print(f'{'='*37}\n')
+    print(f'|{"Pesan Satuan":^35}|')
+    print(f'{"="*37}\n')
 
     pesan_satuan.clear()
 
     with open ('dataalat.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             pesan_satuan.append([row[0],row[1]]) 
         
@@ -1322,13 +1324,13 @@ pesan_paketan = []
 
 def pesanan_paketan_customer():
     print('='*37)
-    print(f'|{'Pesan Paketan':^35}|')
-    print(f'{'='*37}\n')
+    print(f'|{"Pesan Paketan":^35}|')
+    print(f'{"="*37}\n')
 
     pesan_paketan.clear()
 
     with open ('datapaket.csv','r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             pesan_paketan.append([row[0], row[1], row[2], row[3]]) 
 
@@ -1378,12 +1380,12 @@ def pesanan_paketan_customer():
 
 def lihat_pesanan_customer():
     clear()
-    print(f'{'Pesanan Anda':^35}\n')
+    print(f'{"Pesanan Anda":^35}\n')
     data_pesanan = []
     data_customer = []
 
     with open ('datapesanan.csv', 'r') as file:
-        read = csv.reader(file, delimiter=',')
+        read = csv.reader(file, delimiter=",")
         for row in read:
             data_pesanan.append({'username':row[0],'nama':row[1], 
                                  'no.telp':row[2], 'listalat/paket':row[3], 
